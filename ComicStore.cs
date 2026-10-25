@@ -9,13 +9,11 @@ public class ComicStore
 {
     // רשימת חוברות הקומיקס בחנות
     public List<ComicBook> Inventory { get; private set; }
-
     public ComicStore()
     {
         Inventory = new List<ComicBook>();
         InitializeInventory();
     }
-
     /// <summary>
     /// אתחול החנות עם 20 חוברות קומיקס שונות (כולל חוברות עם מלאי 0)
     /// </summary>
@@ -165,11 +163,11 @@ public class ComicStore
         {
             if (HeroQuantities.ContainsKey(b.Hero))
             {
-                HeroQuantities[b.Hero] += b.StockQuantity;
+                HeroQuantities[b.Hero] += 1;
             }
             else
             {
-                HeroQuantities[b.Hero] = b.StockQuantity;
+                HeroQuantities[b.Hero] = 1;
             }
         }
         int max = int.MinValue;
