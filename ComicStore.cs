@@ -172,12 +172,20 @@ public class ComicStore
         }
         int max = int.MinValue;
         string maxString = string.Empty;
-        foreach (ComicBook b in Inventory)
+        /*foreach (ComicBook b in Inventory)
         {
             if(max <HeroQuantities[b.Hero])
             {
                 max = HeroQuantities[b.Hero];
                 maxString = b.Hero;
+            }
+        }*/
+        foreach (KeyValuePair<string, int> pair in HeroQuantities)
+        {
+            if (max < pair.Value)
+            {
+                maxString = pair.Key;
+                max = pair.Value;
             }
         }
         return maxString;
